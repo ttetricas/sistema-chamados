@@ -1,0 +1,56 @@
+body {
+  background-color: #1e1e1e;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+}
+
+.sidebar {
+  width: 250px;
+  background: #0077b6;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 auto;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 0;
+  font-weight: 500;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  color: #cce3ff;
+  transform: scale(1.05);
+}
+
+.content {
+  background: linear-gradient(180deg, #74c0fc 0%, #a2d2ff 100%);
+  min-height: 100vh;
+}
+
+.home-box {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn-dark {
+  background-color: #000;
+  border: none;
+  font-weight: bold;
+}

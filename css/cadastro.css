@@ -1,0 +1,52 @@
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, #7fd1f9, #6ec1f4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.cadastro-container {
+  width: 500px;
+  background: transparent;
+  text-align: center;
+}
+
+.titulo {
+  background-color: #1d7cb8;
+  color: white;
+  font-weight: bold;
+  padding: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  background-color: #e3e3e3;
+  border: none;
+  border-radius: 4px;
+  color: #555;
+}
+
+.btn-cadastrar {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  font-weight: bold;
+  border-radius: 0;
+  transition: 0.2s;
+}
+
+.btn-cadastrar:hover {
+  background-color: #222;
+}
