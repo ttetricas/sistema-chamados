@@ -1,0 +1,212 @@
+/* body geral */
+body {
+  margin: 0;
+  font-family:"Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #79baf9, #9cd0ff);
+  color: #111;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #0077b6; /* azul principal */
+  height: 100vh;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* sombra lateral */
+}
+
+/* Itens do menu */
+.menu-item {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  color: #cce7ff;
+}
+
+/* Item ativo (HOME) */
+.menu-item.active {
+  color: #0077b6;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+/* ========= AREA PRINCIPAL ========= */
+.content {
+  background: linear-gradient(180deg,#74c0fc 0%, #a2d2ff 100%);
+  min-height: 100vh;
+  padding: 48px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Caixa central */
+.home-box {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.4); /* borda clara central */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  padding: 60px 80px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+/* Título */
+.home-box h4 {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #003566;
+  margin-bottom: 40px;
+  margin-top: -20px; /* sobe o título */
+  letter-spacing: 0.6px;
+}
+
+/* painel central que contém a grande caixa */
+.main-panel {
+  width: calc(100% - 120px);
+  max-width: 1100px;    /* limita pra não estourar em telas largas */
+  position: relative;
+}
+
+/* ícone pequeno no canto superior esquerdo do painel (igual Figma) */
+.top-left-icon {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  font-size: 1.15rem;
+  color: rgba(0,0,0,0.55);
+}
+
+/* a borda externa arredondada grande */
+.card-outer {
+  background: rgba(0,0,0,0.06);
+  border-radius: 26px;
+  padding: 18px;
+  width: 100%;
+  box-shadow: inset 0 6px 12px rgba(0,0,0,0.04), 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* cartão interno (aquele clarinho com borda azul arredondada) */
+.card-inner {
+  background: rgba(255,255,255,0.55);
+  border-radius: 18px;
+  padding: 28px;
+  border: 3px solid rgba(0, 126, 211, 0.18); /* contorno azul suave */
+  min-height: 300px;
+}
+
+/* legenda / status (ABERTOS, CONCLUÍDOS, PENDENTES) */
+/* Ícones dos status */
+.icon-status {
+  font-size: 1.3rem;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Cores por status */
+.icon-status.aberto {
+  color: #00b4d8; /* azul */
+}
+
+.icon-status.concluido {
+  color: #38b000; /* verde */
+}
+
+.icon-status.pendente {
+  color: #d00000; /* vermelho */
+}
+
+/* ===== STATUS DOS CHAMADOS - BOTÕES CLICÁVEIS ===== */
+.status-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #003566;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Efeito hover */
+.status-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Bordas coloridas */
+.status-btn.aberto {
+  border-color: #00b4d8;
+}
+.status-btn.concluido {
+  border-color: #38b000;
+}
+.status-btn.pendente {
+  border-color: #d00000;
+}
+
+/* Ícones coloridos */
+.status-btn.aberto .icon-status { color: #00b4d8; }
+.status-btn.concluido .icon-status { color: #38b000; }
+.status-btn.pendente .icon-status { color: #d00000; }
+
+/* Estado ativo (clicado) */
+.status-btn.active {
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.25);
+}
+
+/* preview box (espaço onde iriam os cards/chamados) */
+.preview-box {
+  margin-top: 12px;
+  height: 220px;
+  border-radius: 12px;
+  border: 2px solid rgba(3, 115, 207, 0.15);
+  background: rgba(255,255,255,0.9);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* pequenos ajustes de tipografia */
+.home-box-title { font-weight: 800; font-size: 1.25rem; color: #012534; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 1200px) {
+  .sidebar { width: 260px; }
+  .main-panel { max-width: 900px; }
+}
+@media (max-width: 992px) {
+  .sidebar { width: 96px; padding-top: 20px; }
+  .menu-item span { display: none; }
+  .main-panel { max-width: 760px; }
+  .top-left-icon { left: 8px; }
+}
+@media (max-width: 600px) {
+  .app { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; flex-direction: row; gap: 8px; padding: 12px; justify-content: flex-start; }
+  .menu-item { padding: 8px; }
+  .content { padding: 20px 12px; }
+  .card-inner { padding: 18px; }
+  .preview-box { height: 160px; }
+}
