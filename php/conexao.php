@@ -7,8 +7,8 @@ $database = "db_sistema_chamado";
 
 $conexao = new mysqli($server,$user,$password,$database);
 
-if ($conexao == true) {
-    echo "conectado com sucesso!";
+if ($conexao == false) {
+    echo "Falha na conexão!";
 
 }
 

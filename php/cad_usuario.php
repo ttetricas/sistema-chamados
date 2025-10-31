@@ -7,5 +7,11 @@ $celular = $_POST['celular'];
 
 include 'conexao.php';
 
-$insert = "INSERT INTO tb_usuario(null, '$nome', '$email', '$senha', '$celular')";
+$insert = "INSERT INTO tb_usuario VALUE (null, '$nome', '$email', '$senha', '$celular')";
+
+$query = $conexao->query($insert);
+
+if ($query == true) {
+    echo "<script> alert('Usuario cadastrado com sucesso!'); window.location.href = '../index.html' </script>";
+}
 ?>
