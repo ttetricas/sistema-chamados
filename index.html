@@ -14,14 +14,14 @@
     <div class="login-container">
      <img src="assets/icon.png" alt="ícone de usuário" class="login-icon">
 
-    <form>
+    <form action="php/login.php" method="POST">
       <label for="email" class="form-label">EMAIL:</label>
-      <input type="email" id="email" class="form-control" placeholder="email">
+      <input type="email" name="email" id="email" class="form-control" placeholder="email">
 
       <label for="senha" class="form-label">SENHA:</label>
-      <input type="password" id="senha" class="form-control" placeholder="senha">
+      <input type="password" name="senha" id="senha" class="form-control" placeholder="senha">
 
-      <button type="button" class="btn btn-login" onclick="window.location.href='home.html'">ENTRAR</button>
+      <button type="submit" class="btn btn-login">ENTRAR</button>
 
       <div class="register-text">
         Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
