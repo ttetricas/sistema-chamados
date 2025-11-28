@@ -15,11 +15,24 @@
       <div class="user-icon mb-4">
         <i class="bi bi-person" style="font-size: 4rem;"></i>
       </div>
+    <!-- Saudação ao usuário -->
+      <div class="user-greeting">
+        <h5>Olá, Usuário</h5> <!-- Esta parte pode ser dinâmica -->
+      </div>
       <a href="home.html" class="menu-item active"><i class="bi bi-house"></i> HOME</a>
       <a href="abrir-chamado.html" class="menu-item"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
       <a href="chamados.html" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
+      <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
     </div>
-
+    </div>
+    <?php
+    session_start();
+    if (isset($_SESSION['id_usuario'])) {
+      echo "Olá, ".$_SESSION['nm_usuario'];
+    }else{
+      echo "<script> alert('Você não está logado!') history.back(); </script>";
+    }
+    ?>
     <!-- Conteúdo -->
     <div class="content flex-grow-1 d-flex flex-column justify-content-center align-items-center text-dark">
       <div class="welcome-box text-center p-5 rounded-4 shadow">
