@@ -37,13 +37,14 @@
       <a href="home.php" class="menu-item"><i class="bi bi-house"></i> HOME</a>
       <a href="abrir-chamado.php" class="menu-item active"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
       <a href="chamados.html" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
-            <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
+      <a href="faq.html" class="menu-item"><i class="bi bi-question-circle"></i> FAQ</a>
+      <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
     </div>
     <!-- CONTEÚDO -->
     <div class="content p-5 flex-grow-1">
       <div class="home-box p-5">
         <h4 class="mb-4">Abrir Novo Chamado</h4>
-        <form>
+        <form method="POST" action="php/cad_chamados.php">
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label">Tipo</label>
@@ -53,9 +54,7 @@
                     $select = "SELECT * FROM tb_tipo";
                     $query = $conexao->query($select);
                     while ($resultado = $query->fetch_assoc()) { ?>
-
-                    <option value="id_tipo"><?php echo $resultado['nm_tipo'] ?></option>
-
+                    <option value="<?php echo $resultado['id_tipo']; ?>"><?php echo $resultado['nm_tipo']; ?></option>
                     <?php } 
                   ?>                
               </select>
@@ -68,7 +67,7 @@
                 $select = "SELECT * FROM tb_categoria";
                 $query = $conexao->query($select);
                 while ($resultado = $query->fetch_assoc()) { ?>
-                  <option value="<?php echo $resultado['id_categoria']?>"> <?php echo $resultado['nm_categoria']?></option>
+                  <option value="<?php echo $resultado['id_categoria']?>"><?php echo $resultado['nm_categoria']?></option>
                 <?php }
               ?>
               </select>

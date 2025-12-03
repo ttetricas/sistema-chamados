@@ -62,3 +62,31 @@ h4{
   border: none;
   font-weight: bold;
 }
+
+.btn-dark {
+  background-color: #000;
+  border: none;
+  font-weight: bold;
+}
+
+/* Botão de logout no sidebar */
+.btn-logout {
+  background-color: #0077b6; /* mesmo azul da sidebar */
+  color: #cce7ff; /* texto padrão */
+  font-weight: 600;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Hover do botão de logout */
+.btn-logout:hover {
+  color: #ffffff; /* texto fica branco */
+  background-color: rgba(255,255,255,0.2); /* leve destaque no fundo */
+  cursor: pointer;
+}

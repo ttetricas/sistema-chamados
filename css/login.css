@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Fundo geral */
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #79baf9, #9cd0ff);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card central */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 350px;
+}
+
+/* Título */
+.card h3 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Inputs */
+.card input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+.card input[type="email"]:focus {
+    outline: none;
+    border-color: #0077b6;
+    box-shadow: 0 0 5px rgba(0,119,182,0.5);
+}
+
+/* Botão */
+.card button {
+    width: 100%;
+    background-color: #0077b6;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background-color: #005f8d;
+    transform: scale(1.03);
+}
+
+/* Links */
+.card .mt-3 a {
+    color: #0077b6;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.card .mt-3 a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsivo */
+@media (max-width: 400px) {
+    .card {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
