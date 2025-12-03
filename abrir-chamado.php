@@ -13,6 +13,7 @@
   // incluir o arquivo de conexao
   include 'php/conexao.php';
   ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,7 +37,7 @@
         
       <a href="home.php" class="menu-item"><i class="bi bi-house"></i> HOME</a>
       <a href="abrir-chamado.php" class="menu-item active"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
-      <a href="chamados.html" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
+      <a href="chamados.php" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
       <a href="faq.html" class="menu-item"><i class="bi bi-question-circle"></i> FAQ</a>
       <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
     </div>

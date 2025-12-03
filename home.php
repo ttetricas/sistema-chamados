@@ -1,11 +1,17 @@
 <?php
 session_start();
-if(!isset($_SESSION['id_usuario'])){
+
+// verifica se o usuario não esta logado
+  if(!isset($_SESSION['id_usuario'])){
     echo "<script>alert('Você não está logado!'); window.location.href='login.php';</script>";
     exit();
-}
+  }
 
-$nm_usuario = $_SESSION['nm_usuario'];
+  // pegar o nome do usuario logado
+  $nm_usuario = $_SESSION['nm_usuario'];
+
+  // incluir o arquivo de conexao
+  include 'php/conexao.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +36,7 @@ $nm_usuario = $_SESSION['nm_usuario'];
 
       <a href="home.php" class="menu-item active"><i class="bi bi-house"></i> HOME</a>
       <a href="abrir-chamado.php" class="menu-item"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
-      <a href="chamados.html" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
+      <a href="chamados.php" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
       <a href="faq.html" class="menu-item"><i class="bi bi-question-circle"></i> FAQ</a>
       <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
     </div>
