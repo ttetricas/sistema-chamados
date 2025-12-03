@@ -4,7 +4,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 //incluir arquivo de conexao
- 
+
 include 'conexao.php';
 
 //colocar a intrução select dentro da variavel select
@@ -25,11 +25,14 @@ $senha_banco = $resultado ['senha'];
 
 if ($email == $email_banco && $senha == $senha_banco) {
     session_start();
-    $_SESSION['id_usuario'] = $resultado ['id'];
+    $_SESSION['id_usuario'] = $resultado ['id_usuario'];
+    $_SESSION['nm_usuario'] = $resultado ['nm_usuario'];
+    
     header('location: ../home.php');
 
-}else{
+}
 
+else {
     echo "<script> alert('Usuario ou senha invalida!'); history.back() </script>";
 }
 

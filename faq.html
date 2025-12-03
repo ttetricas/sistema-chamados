@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ / Ajuda</title>
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="home.php" class="btn-voltar">← Voltar</a>
+
+        <div class="card">
+            <h1>FAQ / Ajuda</h1>
+            <p class="subtitulo">Principais dúvidas sobre o sistema</p>
+
+            <!-- Abrir Chamado -->
+            <div class="faq-item">
+                <button class="faq-pergunta">Como criar um chamado?</button>
+                <div class="faq-resposta">
+                    <p>Para criar um chamado, siga estes passos:</p>
+                    <ol>
+                        <li>Acesse o menu <strong>“Abrir Chamado”</strong>.</li>
+                        <li>Selecione o <strong>Tipo</strong> do chamado.</li>
+                        <li>Escolha a <strong>Categoria</strong> adequada para o problema.</li>
+                        <li>Defina a <strong>Urgência</strong> (Baixa, Média, Alta) conforme a prioridade.</li>
+                        <li>Preencha o <strong>Título</strong> com um resumo do problema.</li>
+                        <li>Descreva detalhadamente o problema no campo <strong>Descrição</strong>.</li>
+                        <li>Clique em <strong>“Criar”</strong> para enviar o chamado.</li>
+                    </ol>
+                    <p>Após enviar, você poderá acompanhar o status do chamado na página <strong>“Meus Chamados”</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Acompanhar Chamados -->
+            <div class="faq-item">
+                <button class="faq-pergunta">Onde acompanho meus chamados?</button>
+                <div class="faq-resposta">
+                    <p>Na página inicial, clique em <strong>“Meus Chamados”</strong> para visualizar o status de todos os seus tickets.</p>
+                </div>
+            </div>
+
+            <!-- Editar Chamado -->
+            <div class="faq-item">
+                <button class="faq-pergunta">Como editar um chamado?</button>
+                <div class="faq-resposta">
+                    <p>Apenas chamados ainda não atendidos podem ser editados. Acesse <strong>“Detalhes do Chamado”</strong> e clique em <strong>“Editar”</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Esqueci Senha -->
+            <div class="faq-item">
+                <button class="faq-pergunta">Esqueci minha senha, o que faço?</button>
+                <div class="faq-resposta">
+                    <p>Na tela de login, clique em <strong>“Recuperar Senha”</strong> para receber um link de redefinição por e-mail.</p>
+                </div>
+            </div>
+
+            <!-- Administrador -->
+            <div class="faq-item">
+                <button class="faq-pergunta">Sou administrador, onde gerencio usuários?</button>
+                <div class="faq-resposta">
+                    <p>Acesse o menu <strong>“Gerenciar Usuários”</strong> para criar, editar ou excluir contas.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const perguntas = document.querySelectorAll(".faq-pergunta");
+
+        perguntas.forEach(btn => {
+            btn.addEventListener("click", () => {
+                btn.classList.toggle("ativo");
+                let resposta = btn.nextElementSibling;
+
+                if (resposta.style.maxHeight) {
+                    resposta.style.maxHeight = null;
+                } else {
+                    resposta.style.maxHeight = resposta.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

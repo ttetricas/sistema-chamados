@@ -14,4 +14,5 @@ $query = $conexao->query($insert);
 if ($query == true) {
     echo "<script> alert('Usuario cadastrado com sucesso!'); window.location.href = '../index.html';</script>";
 }
+
 ?>

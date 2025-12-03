@@ -2,7 +2,7 @@
 //Informações para conectar ao SGBD
 $server = "localhost";
 $user = "root";
-$password = "admin";
+$password = "leideelaila";
 $database = "db_sistema_chamado";
 
 $conexao = new mysqli($server,$user,$password,$database);

@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['id_usuario'])){
+    echo "<script>alert('Você não está logado!'); window.location.href='login.php';</script>";
+    exit();
+}
+
+$nm_usuario = $_SESSION['nm_usuario'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,24 +25,15 @@
       <div class="user-icon mb-4">
         <i class="bi bi-person" style="font-size: 4rem;"></i>
       </div>
-    <!-- Saudação ao usuário -->
-      <div class="user-greeting">
-        <h5>Olá, Usuário</h5> <!-- Esta parte pode ser dinâmica -->
-      </div>
-      <a href="home.html" class="menu-item active"><i class="bi bi-house"></i> HOME</a>
-      <a href="abrir-chamado.html" class="menu-item"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
+      <!-- ola usuario -->
+      <p class="text-center mb-4">Olá, <?php echo $nm_usuario; ?>!</p>
+
+      <a href="home.php" class="menu-item active"><i class="bi bi-house"></i> HOME</a>
+      <a href="abrir-chamado.php" class="menu-item"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
       <a href="chamados.html" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
       <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
     </div>
     </div>
-    <?php
-    session_start();
-    if (isset($_SESSION['id_usuario'])) {
-      echo "Olá, ".$_SESSION['nm_usuario'];
-    }else{
-      echo "<script> alert('Você não está logado!') history.back(); </script>";
-    }
-    ?>
     <!-- Conteúdo -->
     <div class="content flex-grow-1 d-flex flex-column justify-content-center align-items-center text-dark">
       <div class="welcome-box text-center p-5 rounded-4 shadow">
@@ -40,7 +41,7 @@
         <p class="lead mb-4">Gerencie seus chamados com praticidade e agilidade. Escolha uma opção abaixo para começar.</p>
 
         <div class="d-flex gap-4 flex-wrap justify-content-center">
-          <a href="abrir-chamado.html" class="btn btn-success btn-lg px-4 py-2">
+          <a href="abrir-chamado.php" class="btn btn-success btn-lg px-4 py-2">
             <i class="bi bi-plus-circle me-2"></i> Abrir Chamado
           </a>
           <a href="chamados.html" class="btn btn-primary btn-lg px-4 py-2">
