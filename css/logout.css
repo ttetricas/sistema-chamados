@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+    background: #f1f5f9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.logout-card {
+    background: #ffffff;
+
+    padding: 40px;
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    max-width: 380px;
+    width: 100%;
+}
