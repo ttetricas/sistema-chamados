@@ -1,16 +1,13 @@
 <?php
 session_start();
 
-// verifica se o usuario não esta logado
   if(!isset($_SESSION['id_usuario'])){
     echo "<script>alert('Você não está logado!'); window.location.href='login.php';</script>";
     exit();
   }
 
-  // pegar o nome do usuario logado
   $nm_usuario = $_SESSION['nm_usuario'];
 
-  // incluir o arquivo de conexao
   include 'php/conexao.php';
 ?>
 
@@ -19,43 +16,61 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - ChamadoSys</title>
+  <title>Home - Helpard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-  <div class="d-flex">
-    <!-- Sidebar -->
-    <div class="sidebar d-flex flex-column align-items-center p-4 text-white">
-      <div class="user-icon mb-4">
-        <i class="bi bi-person" style="font-size: 4rem;"></i>
-      </div>
-      <!-- ola usuario -->
-      <p class="text-center mb-4">Olá, <?php echo $nm_usuario; ?>!</p>
+  <div class="layout">
 
-      <a href="home.php" class="menu-item active"><i class="bi bi-house"></i> HOME</a>
-      <a href="abrir-chamado.php" class="menu-item"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
-      <a href="chamados.php" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
-      <a href="faq.html" class="menu-item"><i class="bi bi-question-circle"></i> FAQ</a>
-      <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
-    </div>
-    <!-- Conteúdo -->
-    <div class="content flex-grow-1 d-flex flex-column justify-content-center align-items-center text-dark">
-      <div class="welcome-box text-center p-5 rounded-4 shadow">
-        <h1 class="fw-bold mb-3">Bem-vindo ao <span class="text-primary">ChamadoSys</span>!</h1>
-        <p class="lead mb-4">Gerencie seus chamados com praticidade e agilidade. Escolha uma opção abaixo para começar.</p>
+  <aside class="sidebar">
+    <img src="assets/logo.png" class="logo-sidebar" alt="Helpard">
 
-        <div class="d-flex gap-4 flex-wrap justify-content-center">
-          <a href="abrir-chamado.php" class="btn btn-success btn-lg px-4 py-2">
-            <i class="bi bi-plus-circle me-2"></i> Abrir Chamado
-          </a>
-          <a href="chamados.html" class="btn btn-primary btn-lg px-4 py-2">
-            <i class="bi bi-list-ul me-2"></i> Ver Chamados
-          </a>
-        </div>
-      </div>
+    <div class="perfil">
+      <i class="bi bi-person-circle"></i>
+      <span>Olá, <?php echo $nm_usuario; ?></span>
     </div>
-  </div>
+
+    <nav class="menu">
+      <a href="home.php" class="active"><i class="bi bi-house"></i> Home</a>
+      <a href="abrir-chamado.php"><i class="bi bi-plus-circle"></i> Abrir chamado</a>
+      <a href="chamados.php"><i class="bi bi-list-ul"></i> Chamados</a>
+      <a href="faq.php"><i class="bi bi-question-circle"></i> FAQ</a>
+    </nav>
+
+    <a href="logout.php" class="sair">
+      <i class="bi bi-box-arrow-right"></i> Sair
+    </a>
+
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <div class="card-home">
+
+      <h1>Bem-vindo ao <span>Helpard</span></h1>
+
+      <p>
+        Gerencie seus chamados de forma simples e rápida.
+      </p>
+
+      <div class="acoes">
+        <a href="abrir-chamado.php" class="btn btn-success">
+          <i class="bi bi-plus-circle"></i> Abrir chamado
+        </a>
+
+        <a href="chamados.php" class="btn btn-primary">
+          <i class="bi bi-list"></i> Ver chamados
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
 </body>
 </html>

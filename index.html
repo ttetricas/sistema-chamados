@@ -3,31 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
-    <!--CSS bootstrap-->
+    <title>Login - Helpard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <!--CSS Local-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <nav class="navbar-login">
+    <img src="assets/logo.png" class="logo-navbar" alt="Helpard">
+  </nav>
+
+  <div class="login">
     <div class="login-container">
-     <img src="assets/icon.png" alt="ícone de usuário" class="login-icon">
 
-    <form action="php/login.php" method="POST">
-      <label for="email" class="form-label">EMAIL:</label>
-      <input type="email" name="email" id="email" class="form-control" placeholder="email">
+        <div class="icone-login">
+          <i class="bi bi-person-circle"></i>
+        </div>
 
-      <label for="senha" class="form-label">SENHA:</label>
-      <input type="password" name="senha" id="senha" class="form-control" placeholder="senha">
+        <h2 class="titulo">Bem-vindo ao Helpard</h2>
+        <p class="subtitulo">Entre para acessar seus chamados</p>
 
-      <button type="submit" class="btn btn-login">ENTRAR</button>
+        <form action="php/login.php" method="POST">
 
-      <div class="register-text">
-        Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
-        Esqueceu sua senha? <a href="recuperar-senha.php">Recupere aqui</a>
-      </div>
-    </form>
+          <div class="campos">
+            <label label for="email" class="form-label">EMAIL:</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="email">
+          </div>
+
+          <div class="campos">
+            <label for="senha" class="form-label">SENHA:</label>
+            <input type="password" name="senha" id="senha" class="form-control" placeholder="senha">
+          </div> 
+
+          <button type="submit" class="btn btn-login">ENTRAR</button>
+
+          </form>
+          <div class="ajuda">
+            Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
+            Esqueceu sua senha? <a href="recuperar-senha.php">Recupere aqui</a>
+          </div>
+
   </div>
 </body>
 </html>

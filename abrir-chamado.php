@@ -1,16 +1,13 @@
 <?php
   session_start();
 
-  // verifica se o usuario não esta logado
   if(!isset($_SESSION['id_usuario'])){
     echo "<script>alert('Você não está logado!'); history.back();</script>";
     exit();
   }
 
-  // pegar o nome do usuario logado
   $nm_usuario = $_SESSION['nm_usuario'];
 
-  // incluir o arquivo de conexao
   include 'php/conexao.php';
   ?>
 
@@ -19,93 +16,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abrir Chamado</title>
+  <title>Abrir Chamado - helpard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/abrir-chamado.css">
 </head>
 <body>
 
-  <div class="d-flex">
-    <!-- MENU LATERAL -->
-    <div class="sidebar d-flex flex-column align-items-center p-4 text-white">
-      <div class="user-icon mb-4">
-        <i class="bi bi-person" style="font-size: 4rem;"></i>
-      </div>
-        <!-- ola usuario -->
-        <p class="text-center mb-4">Olá, <?php echo $nm_usuario; ?>!</p>
-        
-      <a href="home.php" class="menu-item"><i class="bi bi-house"></i> HOME</a>
-      <a href="abrir-chamado.php" class="menu-item active"><i class="bi bi-plus-circle"></i> ABRIR CHAMADO</a>
-      <a href="chamados.php" class="menu-item"><i class="bi bi-star"></i> CHAMADOS</a>
-      <a href="faq.html" class="menu-item"><i class="bi bi-question-circle"></i> FAQ</a>
-      <a href="logout.php" class="btn btn-logout"><i class="bi bi-box-arrow-right me-2"></i> SAIR</a>
+  <div class="layout">
+
+  <aside class="sidebar">
+    <img src="assets/logo.png" class="logo-sidebar" alt="Helpard">
+
+    <div class="perfil">
+      <i class="bi bi-person-circle"></i>
+      <span>Olá, <?php echo $nm_usuario; ?></span>
     </div>
-    <!-- CONTEÚDO -->
-    <div class="content p-5 flex-grow-1">
-      <div class="home-box p-5">
-        <h4 class="mb-4">Abrir Novo Chamado</h4>
-        <form method="POST" action="php/cad_chamados.php">
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label class="form-label">Tipo</label>
-              <select id="tipo" name="tipo" class="form-select">
-                  <?php
-                    include 'php/conexao.php';
-                    $select = "SELECT * FROM tb_tipo";
-                    $query = $conexao->query($select);
-                    while ($resultado = $query->fetch_assoc()) { ?>
-                    <option value="<?php echo $resultado['id_tipo']; ?>"><?php echo $resultado['nm_tipo']; ?></option>
-                    <?php } 
-                  ?>                
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Categoria</label>
-              <select id="categoria" name="categoria" class="form-select">
+
+    <nav class="menu">
+      <a href="home.php"><i class="bi bi-house"></i> Home</a>
+      <a href="abrir-chamado.php" class="active"><i class="bi bi-plus-circle"></i> Abrir chamado</a>
+      <a href="chamados.php"><i class="bi bi-list-ul"></i> Chamados</a>
+      <a href="faq.php"><i class="bi bi-question-circle"></i> FAQ</a>
+    </nav>
+
+    <a href="logout.php" class="sair">
+      <i class="bi bi-box-arrow-right"></i> Sair
+    </a>
+
+  </aside>
+
+  <main class="content">
+
+    <div class="card-form">
+
+      <h4>Abrir novo chamado</h4>
+
+      <form method="POST" action="php/cad_chamados.php">
+
+        <div class="grid">
+
+          <div class="campo">
+            <label>Tipo</label>
+            <select name="tipo">
               <?php
-                include 'php/conexao.php';
-                $select = "SELECT * FROM tb_categoria";
-                $query = $conexao->query($select);
-                while ($resultado = $query->fetch_assoc()) { ?>
-                  <option value="<?php echo $resultado['id_categoria']?>"><?php echo $resultado['nm_categoria']?></option>
-                <?php }
+                $query = $conexao->query("SELECT * FROM tb_tipo");
+                while ($r = $query->fetch_assoc()) {
               ?>
-              </select>
-            </div>
+                <option value="<?php echo $r['id_tipo']; ?>">
+                  <?php echo $r['nm_tipo']; ?>
+                </option>
+              <?php } ?>
+            </select>
           </div>
 
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label class="form-label">Urgência</label>
-              <select id="urgencia" name="urgencia" class="form-select">
+          <div class="campo">
+            <label>Categoria</label>
+            <select name="categoria">
               <?php
-                include 'php/conexao.php';
-                $select = "SELECT * FROM tb_urgencia";
-                $query = $conexao->query($select);
-                while ($resultado = $query->fetch_assoc()) { ?>
-                  <option value="<?php echo $resultado['id_urgencia']?>"><?php echo $resultado['nm_urgencia']?></option>
-                <?php }
+                $query = $conexao->query("SELECT * FROM tb_categoria");
+                while ($r = $query->fetch_assoc()) {
               ?>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Título</label>
-              <input id="titulo" name="titulo" type="text" class="form-control" placeholder="Digite o título">
-            </div>
+                <option value="<?php echo $r['id_categoria']; ?>">
+                  <?php echo $r['nm_categoria']; ?>
+                </option>
+              <?php } ?>
+            </select>
           </div>
 
-          <div class="mb-4">
-            <label class="form-label">Descrição</label>
-            <textarea id="descricao" name="descricao" class="form-control" rows="4" placeholder="Descreva o problema"></textarea>
+        </div>
+
+        <div class="grid">
+
+          <div class="campo">
+            <label>Urgência</label>
+            <select name="urgencia">
+              <?php
+                $query = $conexao->query("SELECT * FROM tb_urgencia");
+                while ($r = $query->fetch_assoc()) {
+              ?>
+                <option value="<?php echo $r['id_urgencia']; ?>">
+                  <?php echo $r['nm_urgencia']; ?>
+                </option>
+              <?php } ?>
+            </select>
           </div>
 
-          <button type="submit" class="btn btn-dark px-5 rounded-pill">Criar</button>
-        </form>
-      </div>
+          <div class="campo">
+            <label>Título</label>
+            <input type="text" name="titulo" placeholder="Digite o título">
+          </div>
+
+        </div>
+
+        <div class="campo">
+          <label>Descrição</label>
+          <textarea name="descricao" rows="4" placeholder="Descreva o problema"></textarea>
+        </div>
+
+        <button type="submit" class="btn-principal">Criar chamado</button>
+
+      </form>
+
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
+  </main>
+
+</div>
+
 </body>
 </html>

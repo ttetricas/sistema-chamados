@@ -1,66 +1,154 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+	--bg-inicio: #F5F7FA;
+	--sidebar: #1F2937;
+	--card: #FFFFFF;
 
-/* Fundo geral */
+	--primary: #3B82F6;
+	--primary-hover: #2563EB;
+
+	--danger: #EF4444;
+
+	--text: #111827;
+	--text-light: #6B7280;
+
+	--transicao: 0.2s ease-in-out;
+}
+
 body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(to bottom, #79baf9, #9cd0ff);
-  font-family: 'Poppins', sans-serif;
-  color: #000;
-  font-weight: 400;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: var(--bg-inicio);
 }
 
-/* Sidebar */
+.layout {
+	display: flex;
+	min-height: 100vh;
+}
+
 .sidebar {
-  width: 250px;
-  background-color: #0077b6;
-  height: 100vh;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+	width: 240px;
+	background: var(--sidebar);
+	color: white;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
 }
 
-.menu-item {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  transition: 0.3s;
+.logo-sidebar {
+	width: 140px;
+	height: auto;
+
+	margin-bottom: 25px;
+
+	display: block;
+	align-self: center;
+
+	filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.18));
+	transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.menu-item:hover {
-  color: #cce7ff;
+.perfil {
+	text-align: center;
+	margin-bottom: 25px;
 }
 
-.menu-item.active {
-  color: #0077b6;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 8px 16px;
+.perfil i {
+	font-size: 50px;
+	display: block;
+	margin-bottom: 8px;
 }
 
-/* Conteúdo principal */
+.perfil span {
+	font-size: 14px;
+}
+
+.menu a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	margin-bottom: 8px;
+	border-radius: 6px;
+	transition: var(--transicao);
+}
+
+.menu a:hover {
+	background: var(--primary);
+}
+
+.menu a.active {
+	background: var(--primary);
+}
+
+.sair {
+	margin-top: auto;
+	text-align: center;
+	background: var(--danger);
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 6px;
+	transition: var(--transicao);
+}
+
+.sair:hover {
+	background: #dc2626;
+}
+
 .content {
-  text-align: center;
-  padding: 40px;
-  width: 100%;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
 }
 
-/* Caixa central */
-.welcome-box {
-  background-color: rgba(255, 255, 255, 0.5);
-  max-width: 700px;
+.card-home {
+	background: var(--card);
+	width: 520px;
+	padding: 32px;
+	border-radius: 12px;
+	text-align: center;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
 
-/* Botões */
-.btn {
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-  transition: transform 0.2s ease;
+.card-home h1 {
+	color: var(--text);
+	margin-bottom: 10px;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+.card-home span {
+	color: var(--primary);
+}
+
+.card-home p {
+	color: var(--text-light);
+	margin-bottom: 20px;
+}
+
+.acoes {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.btn-success {
+	background: #22C55E;
+	border: none;
+}
+
+.btn-success:hover {
+	background: #16A34A;
+}
+
+.btn-primary {
+	background: var(--primary);
+	border: none;
+}
+
+.btn-primary:hover {
+	background: var(--primary-hover);
 }

@@ -1,108 +1,177 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+	--bg-inicio: #F5F7FA;
+	--sidebar: #1F2937;
+	--card: #FFFFFF;
 
-/* Fundo geral */
+	--primary: #3B82F6;
+	--primary-hover: #2563EB;
+
+	--text: #111827;
+	--text-light: #6B7280;
+
+	--borda: #E2E8F0;
+
+	--transicao: 0.2s ease-in-out;
+}
+
 body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #79baf9, #9cd0ff);
-    font-family: 'Poppins', sans-serif;
-    color: #000;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 0;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: var(--bg-inicio);
 }
 
-/* Container principal */
-.container {
-    width: 90%;
-    max-width: 800px;
+.layout {
+	display: flex;
+	min-height: 100vh;
 }
 
-/* Botão de voltar */
-.btn-voltar {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #0077b6;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.3s;
+.sidebar {
+	width: 240px;
+	background: var(--sidebar);
+	color: white;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
 }
 
-.btn-voltar:hover {
-    background-color: #005f8a;
+.logo-sidebar {
+	width: 140px;
+	height: auto;
+
+	margin-bottom: 25px;
+
+	display: block;
+	align-self: center;
+
+	filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.18));
+	transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Card principal */
-.card {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.perfil {
+	text-align: center;
+	margin-bottom: 25px;
 }
 
-/* Título e subtítulo */
-.card h1 {
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-align: center;
+.perfil i {
+	font-size: 50px;
+	display: block;
+	margin-bottom: 8px;
 }
 
-.card .subtitulo {
-    font-weight: 500;
-    color: #555;
-    text-align: center;
-    margin-bottom: 30px;
+.perfil span {
+	font-size: 14px;
 }
 
-/* FAQ Item */
+.menu a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	margin-bottom: 8px;
+	border-radius: 6px;
+	transition: var(--transicao);
+}
+
+.menu a:hover {
+	background: var(--primary);
+}
+
+.menu a.active {
+	background: var(--primary);
+}
+
+.sair {
+	margin-top: auto;
+	text-align: center;
+	background: #EF4444;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 6px;
+	transition: var(--transicao);
+}
+
+.sair:hover {
+	background: #dc2626;
+}
+
+.content {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 40px 20px;
+}
+
+.card-faq {
+	width: 720px;
+	background: var(--card);
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.card-faq h1 {
+	margin-bottom: 5px;
+	color: var(--text);
+}
+
+.subtitulo {
+	color: var(--text-light);
+	margin-bottom: 25px;
+}
+
 .faq-item {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
+	border: 1px solid var(--borda);
+	border-radius: 10px;
+	margin-bottom: 12px;
+	overflow: hidden;
 }
 
-/* Pergunta */
 .faq-pergunta {
-    width: 100%;
-    text-align: left;
-    background: #0077b6;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+	width: 100%;
+	background: #fff;
+	border: none;
+	padding: 14px 16px;
+	text-align: left;
+	font-weight: 600;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: var(--transicao);
 }
 
 .faq-pergunta:hover {
-    background: #005f8a;
+	background: #F9FAFB;
 }
 
-.faq-pergunta.ativo {
-    background: #0096d6;
+.faq-pergunta::after {
+	content: "+";
+	font-size: 18px;
+	color: var(--primary);
 }
 
-/* Resposta */
+.faq-pergunta.ativo::after {
+	content: "-";
+}
+
 .faq-resposta {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 20px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+	padding: 0 16px;
+	background: #FAFAFA;
+	color: var(--text);
 }
 
-.faq-resposta p, 
-.faq-resposta ol, 
-.faq-resposta li {
-    margin: 10px 0;
-    line-height: 1.5;
+.faq-resposta p,
+.faq-resposta ol {
+	margin: 12px 0;
 }
 
 .faq-resposta ol {
-    padding-left: 20px;
+	padding-left: 18px;
 }

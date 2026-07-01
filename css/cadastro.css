@@ -1,52 +1,109 @@
+:root {
+    --bg-inicio: #F5F7FA;
+    --card-fundo: #FFFFFF;
+    --borda-suave: #E2E8F0;
+
+    --text-principal: #1F2937;
+    --text-secundario: #6B7280;
+
+    --primary: #3B82F6;
+    --primary-hover: #2563EB;
+
+    --transicao: 0.2s ease-in-out;
+}
+
 body {
-  height: 100vh;
-  background: linear-gradient(to bottom, #7fd1f9, #6ec1f4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg-inicio);
+}
+
+.navbar-login {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 30px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.logo-navbar {
+    width: 140px;
+    height: auto;
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .cadastro-container {
-  width: 500px;
-  background: transparent;
-  text-align: center;
+    max-width: 720px;
+    margin: 90px auto;
+    background: var(--card-fundo);
+    padding: 28px;
+    border: 1px solid var(--borda-suave);
+    border-radius: 12px;
 }
 
 .titulo {
-  background-color: #1d7cb8;
-  color: white;
-  font-weight: bold;
-  padding: 15px 0;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.titulo h2 {
+    font-size: 20px;
+    color: var(--text-principal);
+    margin: 0;
 }
 
 .form-label {
-  font-weight: bold;
-  color: #000;
-  text-align: left;
-  display: block;
-  margin-bottom: 5px;
+    font-size: 13px;
+    color: var(--text-secundario);
 }
 
 .form-control {
-  background-color: #e3e3e3;
-  border: none;
-  border-radius: 4px;
-  color: #555;
+    border-radius: 8px;
+    border: 1px solid var(--borda-suave);
+    padding: 10px;
+    transition: var(--transicao);
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .btn-cadastrar {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 40px;
-  font-weight: bold;
-  border-radius: 0;
-  transition: 0.2s;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
 }
 
 .btn-cadastrar:hover {
-  background-color: #222;
+    background: var(--primary-hover);
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    text-decoration: underline;
 }
